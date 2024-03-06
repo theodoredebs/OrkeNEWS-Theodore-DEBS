@@ -1,0 +1,12 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 200 60"
+  width="200"
+  height="60"
+  fill="#000000"
+>
+  <!-- Example text: OrkeNEWS -->
+  <text x="10" y="40" font-family="Arial, sans-serif" font-size="24" fill="#000">
+    Orke<span style="font-weight: bold;">NEWS</span>
+  </text>
+</svg>
