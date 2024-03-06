@@ -100,7 +100,7 @@ const Home = () => {
         <meta property="og:title" content={type || "OrkeNEWS- bitcoins"} />
         <meta name="twitter:title" content={type || "OrkeNEWS- bitcoins"} />
       </Helmet>
-      <div className="flex justify-center">
+      <div className="flex flex-col sm:flex-row justify-center gap-3">
         <strong>
           OrkeNEWS:
           <TypeAnimation
