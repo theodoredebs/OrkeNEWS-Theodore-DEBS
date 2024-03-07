@@ -55,7 +55,31 @@ const Header = () => {
             <Menu />
           </IconButton>
           <Sidebar open={open} onClose={() => setOpen(false)}>
-            test
+            <Tabs
+              value={categories.find(
+                (cat) => cat.toLowerCase() === pathname.split("/")[1]
+              )}
+              // onChange={handleChange}
+              variant="scrollable"
+              role="navigation"
+              scrollButtons
+              allowScrollButtonsMobile
+              aria-label="nav tabs"
+              orientation="vertical"
+              className="min-w-[250px]"
+            >
+              {categories.map((top) => (
+                <Tab
+                  label={top}
+                  component={Link}
+                  to={`/${top.toLowerCase()}`}
+                  value={top.toLowerCase()}
+                  sx={{ paddingTop: "0", paddingBottom: "0", fontSize: 12 }}
+                  className="p-0 text-sm"
+                  onClick={() => setOpen(false)}
+                />
+              ))}
+            </Tabs>
           </Sidebar>
         </>
       )}
