@@ -33,11 +33,6 @@
 ::-webkit-scrollbar-track:hover {
   background-color: #c31815;
 }
-#root {
-  max-width: unset;
-  overflow: hidden;
-  background-color: #f1f2f3;
-}
 
 a {
   font-weight: 500;
