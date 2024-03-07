@@ -8,9 +8,9 @@ import { Menu } from "@mui/icons-material";
 const Header = () => {
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
-  console.log('pathname.split("/")[1] :>> ', pathname.split("/")[1]);
   const matches = useMediaQuery("(min-width:600px)");
-
+  const closeDrawer = () => setOpen(false);
+  const openDrawer = () => setOpen(true);
   return (
     <header className="flex  items-center justify-between mx-auto px-[5%] py-3 gap-3 overflow-hidden border-b-2 border-solid border-[#C3181555]">
       <Link to="/" className="text-5xl">
@@ -46,7 +46,7 @@ const Header = () => {
           <IconButton
             color="inherit"
             aria-label="open drawer"
-            onClick={() => setOpen(true)}
+            onClick={openDrawer}
             edge="start"
             sx={{
               ...(open && { display: "none" }),
@@ -54,7 +54,7 @@ const Header = () => {
           >
             <Menu />
           </IconButton>
-          <Sidebar open={open} onClose={() => setOpen(false)}>
+          <Sidebar open={open} onClose={closeDrawer}>
             <Tabs
               value={categories.find(
                 (cat) => cat.toLowerCase() === pathname.split("/")[1]
@@ -76,7 +76,7 @@ const Header = () => {
                   value={top.toLowerCase()}
                   sx={{ paddingTop: "0", paddingBottom: "0", fontSize: 12 }}
                   className="p-0 text-sm"
-                  onClick={() => setOpen(false)}
+                  onClick={closeDrawer}
                 />
               ))}
             </Tabs>

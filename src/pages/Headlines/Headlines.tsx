@@ -16,13 +16,14 @@ interface ArticleSource {
   publishedAt: string;
   content: string;
 }
+
+//TO BE CONTINUE
 const Headlines = () => {
   const { isPending, error, data } = useQuery({
     queryKey: ["Top"],
     queryFn: () =>
       axios.get("top-headlines?country=fr").then((res) => res.data),
   });
-  console.log("data :>> ", data);
   if (isPending) return "Loading...";
 
   if (error) return "An error has occurred: " + error.message;
