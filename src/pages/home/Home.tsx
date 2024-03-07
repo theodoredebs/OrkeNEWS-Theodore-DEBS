@@ -156,8 +156,8 @@ const Home = () => {
       ) : (
         <>
           <Grid container spacing={4}>
-            {data?.pages?.map((el) => (
-              <Fragment key={el}>
+            {data?.pages?.map((el, index) => (
+              <Fragment key={index}>
                 {el?.data?.articles?.map((art: ArticleSource) => (
                   <Grid
                     item
