@@ -40,7 +40,7 @@ const Home = () => {
     hasNextPage,
   } = useInfiniteQuery({
     queryKey: [
-      "everything",
+      "top-headlines",
       type,
       sortBy,
       selectedLanguages,

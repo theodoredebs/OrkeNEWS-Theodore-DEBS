@@ -3,7 +3,7 @@ import { categories } from "../utils/consts";
 import { IconButton, Tab, Tabs, useMediaQuery } from "@mui/material";
 import Sidebar from "./Sidebar";
 import { useState } from "react";
-import { Menu } from "@mui/icons-material";
+import { Menu, SearchOutlined } from "@mui/icons-material";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -16,47 +16,18 @@ const Header = () => {
       <Link to="/" className="text-5xl">
         OrkeNEWS
       </Link>
-      {matches ? (
-        <nav className=" md:max-w-[400px] lg:max-w-[80%]">
-          <Tabs
-            value={
-              categories.find(
-                (cat) => cat.toLowerCase() === pathname.split("/")[1]
-              ) || false
-            }
-            variant="scrollable"
-            role="navigation"
-            scrollButtons
-            allowScrollButtonsMobile
-            aria-label="nav tabs"
-          >
-            {categories.map((cat) => (
-              <Tab
-                key={cat}
-                label={cat}
-                component={Link}
-                to={`/${cat.toLowerCase()}`}
-                value={cat.toLowerCase()}
-                sx={{ paddingTop: "0", paddingBottom: "0", fontSize: 12 }}
-                className="p-0 text-sm"
-              />
-            ))}
-          </Tabs>
-        </nav>
-      ) : (
-        <>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={openDrawer}
-            edge="start"
-            sx={{
-              ...(open && { display: "none" }),
-            }}
-          >
-            <Menu />
-          </IconButton>
-          <Sidebar open={open} onClose={closeDrawer}>
+      <div className="flex items-center">
+        <IconButton
+          color="primary"
+          sx={{ p: "10px" }}
+          aria-label="directions"
+          component={Link}
+          to="search"
+        >
+          <SearchOutlined />
+        </IconButton>
+        {matches ? (
+          <nav className=" md:max-w-[400px] lg:max-w-[80%]">
             <Tabs
               value={
                 categories.find(
@@ -68,8 +39,6 @@ const Header = () => {
               scrollButtons
               allowScrollButtonsMobile
               aria-label="nav tabs"
-              orientation="vertical"
-              className="min-w-[250px]"
             >
               {categories.map((cat) => (
                 <Tab
@@ -80,13 +49,55 @@ const Header = () => {
                   value={cat.toLowerCase()}
                   sx={{ paddingTop: "0", paddingBottom: "0", fontSize: 12 }}
                   className="p-0 text-sm"
-                  onClick={closeDrawer}
                 />
               ))}
             </Tabs>
-          </Sidebar>
-        </>
-      )}
+          </nav>
+        ) : (
+          <>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={openDrawer}
+              edge="start"
+              sx={{
+                ...(open && { display: "none" }),
+              }}
+            >
+              <Menu />
+            </IconButton>
+            <Sidebar open={open} onClose={closeDrawer}>
+              <Tabs
+                value={
+                  categories.find(
+                    (cat) => cat.toLowerCase() === pathname.split("/")[1]
+                  ) || false
+                }
+                variant="scrollable"
+                role="navigation"
+                scrollButtons
+                allowScrollButtonsMobile
+                aria-label="nav tabs"
+                orientation="vertical"
+                className="min-w-[250px]"
+              >
+                {categories.map((cat) => (
+                  <Tab
+                    key={cat}
+                    label={cat}
+                    component={Link}
+                    to={`/${cat.toLowerCase()}`}
+                    value={cat.toLowerCase()}
+                    sx={{ paddingTop: "0", paddingBottom: "0", fontSize: 12 }}
+                    className="p-0 text-sm"
+                    onClick={closeDrawer}
+                  />
+                ))}
+              </Tabs>
+            </Sidebar>
+          </>
+        )}
+      </div>
     </header>
   );
 };
