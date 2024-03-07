@@ -1,8 +1,8 @@
 import { Grid, Skeleton, Box } from "@mui/material";
 
 const NewsCardSkeleton = () => {
-  return [...Array(3)].map((el) => (
-    <Grid item key={el} lg={4} md={6} xs={12}>
+  return [...Array(3)].map((_, index) => (
+    <Grid item key={index} lg={4} md={6} xs={12}>
       <Skeleton variant="rectangular" height={200} />
       <Box height={200}>
         <Skeleton />

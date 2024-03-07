@@ -30,12 +30,13 @@ const Header = () => {
             allowScrollButtonsMobile
             aria-label="nav tabs"
           >
-            {categories.map((top) => (
+            {categories.map((cat) => (
               <Tab
-                label={top}
+                key={cat}
+                label={cat}
                 component={Link}
-                to={`/${top.toLowerCase()}`}
-                value={top.toLowerCase()}
+                to={`/${cat.toLowerCase()}`}
+                value={cat.toLowerCase()}
                 sx={{ paddingTop: "0", paddingBottom: "0", fontSize: 12 }}
                 className="p-0 text-sm"
               />

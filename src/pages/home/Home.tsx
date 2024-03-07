@@ -9,7 +9,7 @@ import {
   SelectChangeEvent,
 } from "@mui/material";
 import NewsCard from "../../components/Card/Card";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { languageOptions, sortOptions } from "../../utils/consts";
 import DatePicker from "react-datepicker";
@@ -125,7 +125,9 @@ const Home = () => {
             size="small"
           >
             {languageOptions.map((opt) => (
-              <MenuItem value={opt.value}>{opt.label}</MenuItem>
+              <MenuItem value={opt.value} key={opt.value}>
+                {opt.label}
+              </MenuItem>
             ))}
           </Select>
 
@@ -137,7 +139,9 @@ const Home = () => {
             size="small"
           >
             {sortOptions.map((opt) => (
-              <MenuItem value={opt.value}>{opt.label}</MenuItem>
+              <MenuItem value={opt.value} key={opt.value}>
+                {opt.label}
+              </MenuItem>
             ))}
           </Select>
         </div>
@@ -153,7 +157,7 @@ const Home = () => {
         <>
           <Grid container spacing={4}>
             {data?.pages?.map((el) => (
-              <>
+              <Fragment key={el}>
                 {el?.data?.articles?.map((art: ArticleSource) => (
                   <Grid
                     item
@@ -168,7 +172,7 @@ const Home = () => {
                     </Link>
                   </Grid>
                 ))}
-              </>
+              </Fragment>
             ))}
           </Grid>
           <Button

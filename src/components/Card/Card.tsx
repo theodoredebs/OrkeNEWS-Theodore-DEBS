@@ -24,8 +24,7 @@ interface NewsCardProps {
 }
 
 const NewsCard = (props: NewsCardProps) => {
-  const { urlToImage, title, description, publishedAt, source, author, url } =
-    props;
+  const { urlToImage, title, description, publishedAt, source, author } = props;
 
   return (
     <Card>
@@ -58,10 +57,7 @@ const NewsCard = (props: NewsCardProps) => {
       </CardContent>
 
       <CardActions>
-        {/* <Button size="small">Share</Button> */}
-        <Button size="small" component={"a"} href={url}>
-          Read More
-        </Button>
+        <Button size="small">Read More</Button>
       </CardActions>
     </Card>
   );
