@@ -19,10 +19,11 @@ const Header = () => {
       {matches ? (
         <nav className=" md:max-w-[400px] lg:max-w-[80%]">
           <Tabs
-            value={categories.find(
-              (cat) => cat.toLowerCase() === pathname.split("/")[1]
-            )}
-            // onChange={handleChange}
+            value={
+              categories.find(
+                (cat) => cat.toLowerCase() === pathname.split("/")[1]
+              ) || false
+            }
             variant="scrollable"
             role="navigation"
             scrollButtons
@@ -56,10 +57,11 @@ const Header = () => {
           </IconButton>
           <Sidebar open={open} onClose={closeDrawer}>
             <Tabs
-              value={categories.find(
-                (cat) => cat.toLowerCase() === pathname.split("/")[1]
-              )}
-              // onChange={handleChange}
+              value={
+                categories.find(
+                  (cat) => cat.toLowerCase() === pathname.split("/")[1]
+                ) || false
+              }
               variant="scrollable"
               role="navigation"
               scrollButtons
@@ -68,12 +70,13 @@ const Header = () => {
               orientation="vertical"
               className="min-w-[250px]"
             >
-              {categories.map((top) => (
+              {categories.map((cat) => (
                 <Tab
-                  label={top}
+                  key={cat}
+                  label={cat}
                   component={Link}
-                  to={`/${top.toLowerCase()}`}
-                  value={top.toLowerCase()}
+                  to={`/${cat.toLowerCase()}`}
+                  value={cat.toLowerCase()}
                   sx={{ paddingTop: "0", paddingBottom: "0", fontSize: 12 }}
                   className="p-0 text-sm"
                   onClick={closeDrawer}

@@ -24,16 +24,8 @@ interface NewsCardProps {
 }
 
 const NewsCard = (props: NewsCardProps) => {
-  const {
-    urlToImage,
-    title,
-    description,
-    publishedAt,
-    source,
-    author,
-    url,
-    content,
-  } = props;
+  const { urlToImage, title, description, publishedAt, source, author, url } =
+    props;
 
   return (
     <Card>
