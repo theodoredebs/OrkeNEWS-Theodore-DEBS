@@ -33,6 +33,8 @@ const SearchList = () => {
           },
         })
         .then((res) => res),
+    enabled: Boolean(q),
+
     initialPageParam: 1,
     getNextPageParam: (lastPage) => lastPage.config.params.page + 1,
   });
