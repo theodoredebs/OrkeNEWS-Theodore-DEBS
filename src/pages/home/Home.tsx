@@ -103,9 +103,9 @@ const Home = () => {
             repeat={Infinity}
           />
         </strong>
-        <div className="flex gap-3 ml-auto">
+        <div className="flex flex-col sm:flex-row gap-3 sm:ml-auto">
           <DatePicker
-            className=""
+            className="w-full"
             selectsRange={true}
             startDate={startDate}
             endDate={endDate}
