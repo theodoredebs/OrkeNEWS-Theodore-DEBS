@@ -45,7 +45,7 @@ const SearchList = () => {
     }
   }, [fetchNextPage, inView]);
   if (!q) return null;
-
+  console.log("data?.pages?.length :>> ", data?.pages?.[0]);
   return (
     <div>
       {status === "pending" ? (
@@ -54,7 +54,7 @@ const SearchList = () => {
         </Grid>
       ) : status === "error" ? (
         <span>Error: {error.message}</span> //we can update this fallback component later
-      ) : (
+      ) : data?.pages?.[0]?.data?.articles?.length ? (
         <>
           <Grid container spacing={4}>
             {data?.pages?.map((el, index) => (
@@ -94,6 +94,8 @@ const SearchList = () => {
               : null}
           </div>
         </>
+      ) : (
+        <>No Search found</> //we can update the UI of No data found component
       )}
     </div>
   );

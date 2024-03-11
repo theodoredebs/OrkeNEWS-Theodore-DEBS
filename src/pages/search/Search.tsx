@@ -39,7 +39,7 @@ const Search = () => {
                 inputProps={{ "aria-label": "search orkenews" }}
               />
               {error && (
-                <span className="text-[red] absolute bottom-[-45px] whitespace-nowrap left-0">
+                <span className="text-[red] absolute bottom-[-30px] whitespace-nowrap left-0">
                   {error.message}
                 </span>
               )}
