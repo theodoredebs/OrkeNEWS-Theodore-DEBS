@@ -8,7 +8,7 @@ import {
   Select,
   SelectChangeEvent,
 } from "@mui/material";
-import NewsCard from "../../components/Card/Card";
+import NewsCard from "../../components/NewsCard/NewsCard";
 import { Fragment, useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { languageOptions, sortOptions } from "../../utils/consts";
@@ -16,7 +16,7 @@ import DatePicker from "react-datepicker";
 import { Link, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { TypeAnimation } from "react-type-animation";
-import NewsCardSkeleton from "../../components/Card/NewsCardSkeleton";
+import NewsCardSkeleton from "../../components/NewsCard/NewsCardSkeleton";
 import { ArticleSource } from "./IHome";
 
 const Home = () => {

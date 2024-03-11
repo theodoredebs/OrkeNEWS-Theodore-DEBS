@@ -1,8 +1,8 @@
 import { Grid, Button } from "@mui/material";
 import { Fragment, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import NewsCard from "../../components/Card/Card";
-import NewsCardSkeleton from "../../components/Card/NewsCardSkeleton";
+import NewsCard from "../../components/NewsCard/NewsCard";
+import NewsCardSkeleton from "../../components/NewsCard/NewsCardSkeleton";
 import { ArticleSource } from "../home/IHome";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useInView } from "react-intersection-observer";

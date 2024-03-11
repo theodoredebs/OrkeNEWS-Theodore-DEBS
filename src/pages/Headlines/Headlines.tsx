@@ -1,6 +1,6 @@
 import { Grid } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
-import NewsCard from "../../components/Card/Card";
+import NewsCard from "../../components/NewsCard/NewsCard";
 import { axios } from "../../utils/apis/main";
 
 interface ArticleSource {

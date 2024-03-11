@@ -8,22 +8,17 @@ import {
   Divider,
 } from "@mui/material";
 import { getTimeAgo } from "../../utils/functions/functions";
+import { NewsCardProps } from "./INewsCard";
 
-interface NewsCardProps {
-  source: {
-    id: string;
-    name: string;
-  };
-  author: string;
-  title: string;
-  description: string;
-  url: string;
-  urlToImage: string;
-  publishedAt: string;
-  content: string;
-}
-
-const NewsCard = (props: NewsCardProps) => {
+/**
+ * NewsCardProps interface defines the props expected by the NewsCard component.
+ 
+ * NewsCard is a React component that displays news information in a card format.
+ *
+ * @param {NewsCardProps} props - The properties passed to the component.
+ * @returns {JSX.Element} - The rendered NewsCard component.
+ */
+const NewsCard = (props: NewsCardProps): JSX.Element => {
   const { urlToImage, title, description, publishedAt, source, author } = props;
 
   return (
@@ -34,7 +29,8 @@ const NewsCard = (props: NewsCardProps) => {
           urlToImage ||
           "https://clarionhealthcare.com/wp-content/uploads/2020/12/default-fallback-image.png"
         }
-        title={title}
+        alt={title}
+        component="img"
       />
       <CardContent sx={{ height: 200, overflow: "auto" }}>
         <Typography gutterBottom variant="h5" component="div">
