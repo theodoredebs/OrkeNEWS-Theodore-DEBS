@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom"; // Import the jest-dom extension for additional matchers
+import "@testing-library/jest-dom";
 import NewsCard from "./NewsCard";
 
 // Mock data for testing
@@ -17,10 +17,15 @@ const mockNewsData = {
   content: "Test news content.",
 };
 
-describe("NewsCard", () => {
-  it("renders NewsCard component with mock data", () => {
+describe("<NewsCard> Component", () => {
+  test("renders NewsCard component with mock data", () => {
+    //Arrange
     render(<NewsCard {...mockNewsData} />);
 
+    //Act
+    // ... nothing
+
+    //Assert
     // Check if the title, description, and "Read More" button are rendered
     expect(screen.getByText("Test News Title")).toBeInTheDocument();
     expect(screen.getByText("Test News Description")).toBeInTheDocument();
